@@ -1,0 +1,62 @@
+\documentclass[12pt, a4paper]{article}
+
+\include{inc/packages.inc}
+\include{inc/personalize.inc}
+\include{inc/style.inc}
+
+\begin{document}
+\nocite{*}
+
+\pagenumbering{gobble}
+\include{inc/title.inc}
+
+\tableofcontents
+\newpage
+\newcounter{lastroman}
+\setcounter{lastroman}{\value{page}}
+\pagestyle{plain}
+\pagenumbering{arabic}
+\maketitle
+\begin{abstract}
+    \lipsum[20]
+\end{abstract}
+\section{Topic1, Content1 and Structure1}
+\subsection{Topic}
+\lipsum[10]
+\subsection{Content}
+\lipsum[15]
+\subsection{Structure}
+\lipsum[20]
+\section{Topic2, Content2 and Structure2}
+\subsection{Topic}
+\lipsum[25]
+\subsection{Content}
+\lipsum[30]
+\subsection{Structure}
+\lipsum[35]
+\newpage
+
+% Anhang
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\pagenumbering{Roman}
+\setcounter{page}{\value{lastroman}}
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+%Abkürzungsverzeichnis
+\input{inc/shorts.inc}
+\newpage
+
+%Code
+\input{inc/code_template.inc}
+\newpage
+\listoffigures
+
+
+%Bibliographie
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{IEEEtranSA}
+\bibliography{bib/sources}
+\include{inc/ensure.inc}
+
+\end{document}

@@ -14,6 +14,15 @@ With this image you can:
  * Customize your image with own users
  * Scientific project template (VSCode only)
 
+## Getting started
+```bash
+# In VSCode hit F1
+> Remote-Containers: Clone Repository in Container Volume
+> https://github.com/hegerdes/VSCode-LaTeX-Container
+# Wait for the initial pull and build
+# Note: You need to have docker and vscode remote extentions installed 
+```
+
 ## About the image tags
 There are four base images **debian-[buster|stretch], ubuntu-[focal|bionic]**. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh, python3 and pandoc** installed.
 

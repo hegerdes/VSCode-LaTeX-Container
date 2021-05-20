@@ -15,6 +15,7 @@
 *.bst
 *.bbl
 *.suo
+*.lot
 
 # Out
 main.pdf

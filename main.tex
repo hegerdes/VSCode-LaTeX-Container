@@ -4,6 +4,19 @@
 \include{inc/personalize.inc}
 \include{inc/style.inc}
 
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{.4mm} % header line width
+
+% \pagestyle{plain}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhfoffset[L]{1cm} % left extra length
+\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\thepage}
+\lhead{\nouppercase\leftmark}
+\cfoot{\fancyplain{}{\thepage} }
+
 \begin{document}
 \nocite{*}
 
@@ -14,7 +27,6 @@
 \newpage
 \newcounter{lastroman}
 \setcounter{lastroman}{\value{page}}
-\pagestyle{plain}
 \pagenumbering{arabic}
 \maketitle
 \begin{abstract}
@@ -25,13 +37,36 @@
 \lipsum[10]
 \subsection{Content}
 \lipsum[15]
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Andromeda_Galaxy_560mm_FL.jpg}\label{fig::andromeda}
+    \caption{Andromeda Galaxy}
+\end{figure}
 \subsection{Structure}
 \lipsum[20]
 \section{Topic2, Content2 and Structure2}
 \subsection{Topic}
 \lipsum[25]
 \subsection{Content}
-\lipsum[30]
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}llllllll@{}} \toprule
+    {$m$} & {$\Re\{\underline{\mathfrak{X}}(m)\}$} & {$-\Im\{\underline{\mathfrak{X}}(m)\}$} & {$\mathfrak{X}(m)$} & {$\frac{\mathfrak{X}(m)}{23}$} & {$A_m$} & {$\varphi(m)\ /\ ^{\circ}$} & {$\varphi_m\ /\ ^{\circ}$} \\ \midrule
+    1  & 16.128 & +8.872 & 16.128 & 1.402 & 1.373 & -146.6 & -137.6 \\
+    2  & 3.442  & -2.509 & 3.442  & 0.299 & 0.343 & 133.2  & 152.4  \\
+    3  & 1.826  & -0.363 & 1.826  & 0.159 & 0.119 & 168.5  & -161.1 \\
+    4  & 0.993  & -0.429 & 0.993  & 0.086 & 0.08  & 25.6   & 90     \\ \midrule
+    5  & 1.29   & +0.099 & 1.29   & 0.112 & 0.097 & -175.6 & -114.7 \\
+    6  & 0.483  & -0.183 & 0.483  & 0.042 & 0.063 & 22.3   & 122.5  \\
+    7  & 0.766  & -0.475 & 0.766  & 0.067 & 0.039 & 141.6  & -122   \\
+    8  & 0.624  & +0.365 & 0.624  & 0.054 & 0.04  & -35.7  & 90     \\ \midrule
+    9  & 0.641  & -0.466 & 0.641  & 0.056 & 0.045 & 133.3  & -106.3 \\
+    10 & 0.45   & +0.421 & 0.45   & 0.039 & 0.034 & -69.4  & 110.9  \\
+    11 & 0.598  & -0.597 & 0.598  & 0.052 & 0.025 & 92.3   & -109.3 \\ \bottomrule
+\end{tabular}
+\caption{Fourier series}
+\label{tab::fourier}
+\end{table}
 \subsection{Structure}
 \lipsum[35]
 \newpage
@@ -51,6 +86,7 @@
 \input{inc/code_template.inc}
 \newpage
 \listoffigures
+\listoftables
 
 
 %Bibliographie

@@ -23,7 +23,8 @@
 	"extensions": [
 		"james-yu.latex-workshop",
 		"tecosaur.latex-utilities",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+		"ban.spellright"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

@@ -26,3 +26,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           tectonic-version: 0.4.1
       - run: tectonic main.tex
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: main
+          path: main.pdf

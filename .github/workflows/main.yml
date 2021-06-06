@@ -24,5 +24,5 @@ jobs:
         uses: WtfJoke/setup-tectonic@v1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: "latest"
+          tectonic-version: 0.4.1
       - run: tectonic main.tex

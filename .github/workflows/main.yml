@@ -20,13 +20,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Compile LateX
-        uses: vinay0410/tectonic-action@v1.1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Setup Tectonic
+        uses: WtfJoke/setup-tectonic@v1.1.3
         with:
-          # Path of Tex File
-          tex_path: 'main.tex'
-          # String stating whether to push output PDF, PDF will only be pushed in case of "yes"
-          push: 'Demo.pdf'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          biber-version: "latest"
+      - run: tectonic main.tex

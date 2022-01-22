@@ -36,15 +36,16 @@ code VSCode-LaTeX-Container
 # Note: You need to have docker and vscode remote extentions installed
 ```
 ## About the image and tags
-There are four base images **debian-[buster|stretch], ubuntu-[focal|bionic]**. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh, python3 and pandoc** installed.
+There are multible base images **debian-[buster (depricated)|bullseye], ubuntu-[focal|bionic (depricated)]**, alpine. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh and pandoc(not in alpine)** installed.
 
 The slim images only contain **texlive, texlive-latex-extra, texlive-lang-english, latexmk, cm-super, chktex**
+If you want a minimal image use the alpine version, but this might lack common tools.
 
-There are two full images that contain **everything** in the LaTeX world except for docs. Thes are BIG and generally not recommended.
+There are two full images that contain **everything** in the LaTeX world except for docs. Thes are BIG and generally not recommended for fast startups.
 
-There are a bunch of language specific images that are build up on the **buster-base** and **focal-base** images. Languages are: **all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish**.
+There are a bunch of language specific images that are build up on the **bullseye-base** and **focal-base** images. Languages are: **all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish**.
 
-Use one of these if your work on a non English project! Simply change the `VARIANT` arg in the devcontainer.json to `buster-lang-<YOUR_LANGUAGE>`.
+Use one of these if your work on a non English project! Simply change the `VARIANT` arg in the devcontainer.json to `bullseye-lang-<YOUR_LANGUAGE>`.
 
 ## The LaTeX template
 The template was build up over the time and is designed for satisfice projects. But I didn't start form scratch either. Credit goes to:

@@ -11,6 +11,7 @@ With this image you can:
  * Have a setup that is faster than MiKTeX on Windows
  * Have LaTeX Workshop an LaTex Utilities preinstalled (VSCode only)
  * Markdown support (VSCode only)
+ * Spell checking (VSCode only)
  * Persistent bash_history (VSCode only)
  * Git support
  * Customize your image with own users or more tools

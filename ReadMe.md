@@ -60,7 +60,6 @@ Use one of these if your work on a none English project! Simply change the `VARI
 I plan on updating these images every second month.
 
 ### The LaTeX template
-![Pic](/img/blog/latex-template.png)
 The included template was build up over the time and is designed for scientific projects. But I didn't start from scratch either. Credit goes to:
 ```LaTeX
 % Original author:

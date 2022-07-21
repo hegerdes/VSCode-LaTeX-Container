@@ -100,3 +100,4 @@ If you find any issues let me [know](https://github.com/hegerdes/VSCode-LaTeX-Co
 
 ### Support me
 If you like this or other projects may consider [supporting me.](https://paypal.me/hegerdes?locale.x=de_DE)
+

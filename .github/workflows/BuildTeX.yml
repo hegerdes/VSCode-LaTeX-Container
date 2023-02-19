@@ -24,7 +24,7 @@ jobs:
         uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          tectonic-version: 0.4.1
+          tectonic-version: 0.12.0
       - run: tectonic main.tex
       - name: Upload pdf
         uses: actions/upload-artifact@v2

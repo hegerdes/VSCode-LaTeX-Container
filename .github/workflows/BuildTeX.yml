@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Tectonic
-        uses: WtfJoke/setup-tectonic@v1.1.10
+        uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           tectonic-version: 0.4.1

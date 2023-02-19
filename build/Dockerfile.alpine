@@ -1,0 +1,16 @@
+FROM alpine:3
+
+# [Options]
+ARG INSTALL_ZSH="true"
+ARG UPGRADE_PACKAGES="true"
+ARG USERNAME=latex
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+COPY scripts/*.sh /tmp/library-scripts/
+RUN apk --no-cache add bash git sudo less curl wget shadow zsh
+RUN apk --no-cache add openjdk16-jre-headless texlive texlive-luatex texlive-xetex texlive-full
+RUN echo "JAVA_HOME=$(which java)" >> /etc/environment
+RUN addgroup -S ${USERNAME} && adduser -s $(which zsh) -D ${USERNAME} -G ${USERNAME}
+
+

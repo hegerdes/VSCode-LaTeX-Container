@@ -1,0 +1,18 @@
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian/.devcontainer/base.Dockerfile
+
+# [Choice] Debian version: buster, stretch, bionic, focal
+ARG VARIANT="bullseye"
+FROM hegerdes/vscode-latex:${VARIANT}
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y texlive-lang-all asymptote biber chktex \
+    cm-super context dvidvi dvipng feynmf fragmaster lacheck latex-cjk-all \
+    latexmk lcdf-typetools prerex psutils purifyeps t1utils tex-gyre latexdiff \
+    texlive-base texlive-bibtex-extra texlive-binaries texlive-extra-utils \
+    texlive-font-utils texlive-fonts-extra texlive-fonts-extra-links \
+    texlive-fonts-recommended texlive-formats-extra texlive-games \
+    texlive-humanities texlive-latex-base texlive-latex-extra \
+    texlive-latex-recommended texlive-luatex texlive-metapost \
+    texlive-music texlive-pictures texlive-plain-generic \
+    texlive-pstricks texlive-publishers texlive-science \
+    texlive-xetex tipa vprerex && apt-get autoclean

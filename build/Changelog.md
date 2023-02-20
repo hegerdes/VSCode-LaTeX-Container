@@ -1,12 +1,6 @@
 # Changelog
 
 ##  Jul 21 2021
- * Added code for container build to repo
- * Added GH Action for auto build
- * Debian bullseye is now the default image
-
-
-##  Jul 21 2021
  * Moved form microsoft vscode image to pure debian/ubuntu base-image
  * Added debian bullseye support
  * Drop debian stretch support
@@ -27,3 +21,4 @@
  * Initial release
  * Support debian-buster|stretch[-slim]
  * Support ubuntu-focal|bionic[-slim]
+ * Demo PDF

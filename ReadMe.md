@@ -1,6 +1,6 @@
 # VS code LaTeX template project
 
-This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. Images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
+This repo is meant to be used with VSCode to provide a quick and functional full fleece LaTeX Environment. Images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
 
 ## Functions
 With this image you can:

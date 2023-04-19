@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TestCompile
+name: Compile LaTeX Doc
 
 # Controls when the action will run.
 on:
@@ -25,7 +25,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           tectonic-version: 0.12.0
-      - run: tectonic main.tex
+
+      - name: Run tectonic
+        run: tectonic main.tex
+
       - name: Upload pdf
         uses: actions/upload-artifact@v2
         with:

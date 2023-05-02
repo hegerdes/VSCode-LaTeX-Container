@@ -1,5 +1,8 @@
 # VS code LaTeX template project
 
+[![Docker Image CI](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml/badge.svg)](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml)
+[![](https://img.shields.io/docker/pulls/hegerdes/vscode-latex)](https://hub.docker.com/r/hegerdes/vscode-latex) [![GitHub forks](https://badgen.net/github/forks/hegerdes/VSCode-LaTeX-Container/)](https://GitHub.com/hegerdes/VSCode-LaTeX-Container/network/) [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
+
 This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. Images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
 
 ## Functions

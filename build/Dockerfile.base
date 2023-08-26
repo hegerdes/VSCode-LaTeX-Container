@@ -1,5 +1,5 @@
-# [Choice] Debian version: buster, stretch
-ARG VARIANT="debian:bullseye-slim"
+# [Choice] Debian version: bullseye, bookworm, focal, jammy
+ARG VARIANT="debian:bookworm-slim"
 FROM ${VARIANT}
 
 # [Options]

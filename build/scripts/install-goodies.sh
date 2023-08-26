@@ -25,6 +25,9 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+APT_SOURCES_LIST=/etc/apt/sources.list
+test -f $APT_SOURCES_LIST || touch $APT_SOURCES_LIST
+
 # Ensure that login shells get the correct path if the user updated the PATH using ENV.
 rm -f /etc/profile.d/00-restore-env.sh
 echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
@@ -102,7 +105,6 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         libkrb5-3 \
         libgssapi-krb5-2 \
         libicu[0-9][0-9] \
-        liblttng-ust0 \
         libstdc++6 \
         zlib1g \
         locales \
@@ -112,8 +114,8 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         init-system-helpers"
 
     # Needed for adding manpages-posix and manpages-posix-dev which are non-free packages in Debian
+    CODENAME="$(cat /etc/os-release | grep -oE '^VERSION_CODENAME=.+$' | cut -d'=' -f2)"
     if [ "${ADD_NON_FREE_PACKAGES}" = "true" ]; then
-        CODENAME="$(cat /etc/os-release | grep -oE '^VERSION_CODENAME=.+$' | cut -d'=' -f2)"
         sed -i -E "s/deb http:\/\/(deb|httpredir)\.debian\.org\/debian ${CODENAME} main/deb http:\/\/\1\.debian\.org\/debian ${CODENAME} main contrib non-free/" /etc/apt/sources.list
         sed -i -E "s/deb-src http:\/\/(deb|httredir)\.debian\.org\/debian ${CODENAME} main/deb http:\/\/\1\.debian\.org\/debian ${CODENAME} main contrib non-free/" /etc/apt/sources.list
         sed -i -E "s/deb http:\/\/(deb|httpredir)\.debian\.org\/debian ${CODENAME}-updates main/deb http:\/\/\1\.debian\.org\/debian ${CODENAME}-updates main contrib non-free/" /etc/apt/sources.list
@@ -124,9 +126,14 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         sed -i "s/deb-src http:\/\/deb\.debian\.org\/debian ${CODENAME}-backports main/deb http:\/\/deb\.debian\.org\/debian ${CODENAME}-backports main contrib non-free/" /etc/apt/sources.list
         echo "Running apt-get update..."
         apt-get update
-        PACKAGE_LIST="${PACKAGE_LIST} manpages-posix manpages-posix-dev"
+        PACKAGE_LIST="${PACKAGE_LIST}"
     else
         apt-get-update-if-needed
+    fi
+    if [ "${CODENAME}" = "bookworm" ] || [ "${CODENAME}" = "jammy" ]; then
+        PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust1"
+    else
+        PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust0"
     fi
 
     # Install libssl1.1 if available

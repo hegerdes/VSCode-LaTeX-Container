@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        variant: ["debian:bullseye-slim", "ubuntu:focal"]
+        variant: [debian:bullseye-slim, debian:bookworm-slim ,ubuntu:focal, ubuntu:jammy]
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
@@ -33,7 +33,7 @@ jobs:
       - name: Set tags
         run: |
           echo "Setting tags..."
-          if [ "${{ matrix.variant }}" = "debian:bullseye-slim" ]; then
+          if [ "${{ matrix.variant }}" = "debian:bookworm-slim" ]; then
             echo "LATEST_TAG=${{ github.actor }}/vscode-latex:latest" >> $GITHUB_ENV
             echo "Added latest tag"
           fi
@@ -57,7 +57,7 @@ jobs:
     needs: docker-base-build
     strategy:
       matrix:
-        variant: ["debian:bullseye-slim", "ubuntu:focal"]
+        variant: ["debian:bookworm-slim", "ubuntu:jammy"]
         lang: [all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish]
     steps:
       - name: Checkout code
@@ -95,7 +95,7 @@ jobs:
     needs: docker-base-build
     strategy:
       matrix:
-        variant: ["debian:bullseye-slim", "ubuntu:focal"]
+        variant: ["debian:bookworm-slim", "ubuntu:jammy"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

@@ -26,7 +26,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     texlive-lang-english texlive-luatex texlive-xetex lmodern \
     texlive-pstricks ps2eps texlive-extra-utils ghostscript ruby \
     libyaml-tiny-perl texlive-science latexmk cm-super chktex && \
-    apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+    apt-get clean -y && apt autoremove && sudo apt autoclean && \
+    rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # Install Pandoc
 ARG PANDOC_URL=https://github.com/jgm/pandoc/releases/download/2.14.1/pandoc-2.14.1-1-amd64.deb

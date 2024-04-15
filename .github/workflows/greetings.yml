@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/first-interaction@v1
         with:
-          issue-message: 'Hi, thank for reporting an issue, we will check it out very soon'
-          pr-message: 'Hi, thank you for contributing, we will check it out very soon'
+          issue-message: "Hi, thank for reporting an issue, we will check it out very soon"
+          pr-message: "Hi, thank you for contributing, we will check it out very soon"
           repo-token: ${{ github.token }}

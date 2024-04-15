@@ -56,9 +56,9 @@ If you want a minimal image use these, but this might lack common tools/packages
 
 There are two full images that contain **everything** in the LaTeX world except for docs. These are **BIG** and generally not recommended for fast startups.
 
-There are a bunch of language specific images that are build up on the **bullseye-base** and **focal-base** images. Languages are: **all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish**.
+There are a bunch of language specific images that are build up on the **bookworm-base** and **jammy-base** images. Languages are: **all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish**.
 
-Use one of these if your work on a none English project! Simply change the `VARIANT` arg in the devcontainer.json to `bullseye-lang-<YOUR_LANGUAGE>` or `ubuntu-lang-<YOUR_LANGUAGE>`.
+Use one of these if your work on a none English project! Simply change the `VARIANT` arg in the devcontainer.json to `bookworm-lang-<YOUR_LANGUAGE>` or `jammy-lang-<YOUR_LANGUAGE>`.
 
 I plan on updating these images every second month.
 
@@ -70,6 +70,14 @@ The included template was build up over the time and is designed for scientific 
 % Vel (vel@latextemplates.com)
 % hegerdes (hegerdes@outlook.de)
 ```
+
+### Other nice Tools:
+ * [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR)
+ * [Detexify](https://play.google.com/store/apps/details?id=website.marty.detexify&hl=en&gl=US)
+ * [ChatGPT](https://chat.openai.com)
+ * [WolframAlpha](https://www.wolframalpha.com/)
+ * [Inkscape](https://inkscape.org/)
+
 
 ### VSCode workspace
 I added a VSCode workspace file with *sensible* setting. It includes some settings for Docker and the LaTeX extensions. Feel free to customize it after your own taste.

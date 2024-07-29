@@ -3,17 +3,19 @@
 [![Docker Image CI](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml/badge.svg)](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml)
 [![](https://img.shields.io/docker/pulls/hegerdes/vscode-latex)](https://hub.docker.com/r/hegerdes/vscode-latex) [![GitHub forks](https://badgen.net/github/forks/hegerdes/VSCode-LaTeX-Container/)](https://GitHub.com/hegerdes/VSCode-LaTeX-Container/network/) [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 
-This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. Images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
+This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. It can be run as a DevContainer or on the web an ANY device using Codespaces or GitPods.   
+Docker/Container images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
 
 ## Functions
 With this image you can:
- * A quick, clean, working LaTeX environment setup based on TeXLive
- * Pandoc - To convert your projects between different formats
+ * Have a quick, clean, working LaTeX environment setup based on TeXLive
+ * Use Pandoc - To convert your projects between different formats
  * Use any host OS
- * Support for x86/arm/arm64 architectures
+ * Run it on x86/arm/arm64 architectures or the web
  * Have our environment on a remote computer
+ * If you use Codespaces or GitPod you can even edit your papers on every browser.
  * Have a setup that is faster than MiKTeX on Windows
- * Have LaTeX Workshop an LaTex Utilities preinstalled (VSCode only)
+ * Have LaTeX Workshop an LaTeX Utilities preinstalled (VSCode only)
  * Markdown support (VSCode only)
  * Spell checking (VSCode only)
  * Persistent bash_history (VSCode only)
@@ -36,6 +38,11 @@ code VSCode-LaTeX-Container
 # Search for "ms-vscode-remote.vscode-remote-extensionpack"
 ```
 
+### On the web
+The entire project is within your Codespace or GitPod:  
+Click `Use this template` and then open in Codespace  
+Alternatively click clone and head over to the Codespace tab.
+
 ### In a container
 The entire project is within the container
 ```bash
@@ -49,6 +56,9 @@ The entire project is within the container
 ```
 
 ## About the Docker image
+All images are updated every month to the latest package version via CI.  
+If you need reproducable enviorments use a fixed container image hash as tag.
+
 There are multiple base images **debian-[bullseye|bookworm] and ubuntu-[focal|jammy]**. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh and pandoc(not in alpine)** installed. Every image is available on x86/arm/arm64 architectures.
 
 The slim images only contain **texlive, texlive-latex-extra, texlive-lang-english, latexmk, cm-super, chktex**
@@ -59,8 +69,6 @@ There are two full images that contain **everything** in the LaTeX world except 
 There are a bunch of language specific images that are build up on the **bookworm-base** and **jammy-base** images. Languages are: **all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish**.
 
 Use one of these if your work on a none English project! Simply change the `VARIANT` arg in the devcontainer.json to `bookworm-lang-<YOUR_LANGUAGE>` or `jammy-lang-<YOUR_LANGUAGE>`.
-
-I plan on updating these images every second month.
 
 ### The LaTeX template
 The included template was build up over the time and is designed for scientific projects. But I didn't start from scratch either. Credit goes to:
@@ -74,10 +82,9 @@ The included template was build up over the time and is designed for scientific 
 ### Other nice Tools:
  * [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR)
  * [Detexify](https://play.google.com/store/apps/details?id=website.marty.detexify&hl=en&gl=US)
- * [ChatGPT](https://chat.openai.com)
  * [WolframAlpha](https://www.wolframalpha.com/)
- * [Inkscape](https://inkscape.org/)
-
+ * [ChatGPT](https://chat.openai.com) - super nice for TIKZ
+ * [Inkscape](https://inkscape.org/) - super for figures
 
 ### VSCode workspace
 I added a VSCode workspace file with *sensible* setting. It includes some settings for Docker and the LaTeX extensions. Feel free to customize it after your own taste.
@@ -85,10 +92,9 @@ I added a VSCode workspace file with *sensible* setting. It includes some settin
 ## Why all this
 I always liked the concept of LaTeX and its focus on content instead of the formatting. But getting started was hard and I wanted to contribute to make it a little more accessible. I first used MiKTeX and TeXworks, but I found the usage of shortcuts hard and didn't like the PDF viewer. I switched to Notepad++, SumataPDF (both great tools) and a handy script. It was great until my projects got bigger. So I used VSCode and LaTeX Workshop and I loved it. All my shortcuts and tools I used before now applied to LaTeX. I was satisfied until I realized how slow MiKTeX on Windows is compared to Linux.
 
-I love Linux, but some things are more convenient on Windows. I started my Bachelor theses about development environments and the usage of container tools. So I have further developed my setup to bring everything together.
+I love Linux, but some things are more convenient on Windows. I started my Bachelor theses about software development environments and the usage of container tools. So I have further developed my setup to bring everything together.
 
 I found that the `tianon/latex` and other image were outdated and did not meet my expectations. I rather created my own image. It is own the large side, but I rather have all my tools there at any time instead of being slowed down by missing them or have to install packages manually. I hope some of you find some interesting tips and tricks in my setup.
-
 
 If you find any issues let me [know](https://github.com/hegerdes/VSCode-LaTeX-Container/issues)
 

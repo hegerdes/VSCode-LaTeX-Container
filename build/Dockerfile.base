@@ -32,10 +32,10 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 
 # Install Pandoc
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y --no-install-recommends librsvg2-bin libjs-mathjax wkhtmltopdf\
-    && if [ "$(uname -m)" = "aarch64" ]; then export ARCH=arm64; else export ARCH=amd64; fi; \
-    wget https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-$ARCH.deb -O pandoc.deb && \
-    apt install -y ./pandoc.deb && rm pandoc.deb \
+    && apt-get install -y --no-install-recommends librsvg2-bin libjs-mathjax wkhtmltopdf \
+    && if [ "$(uname -m)" = "aarch64" ]; then wget --quiet https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-arm64.deb -O pandoc.deb; fi \
+    && if [ "$(uname -m)" = "x86_64" ]; then wget --quiet https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb -O pandoc.deb; fi \
+    && if [ -f pandoc.deb ]; then apt-get install -y ./pandoc.deb && rm pandoc.deb; fi \
     && apt-get autoclean
 
 ARG USERNAME="latex"

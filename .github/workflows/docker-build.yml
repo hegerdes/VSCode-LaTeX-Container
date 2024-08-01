@@ -4,14 +4,24 @@ on:
   push:
     tags: ["*"]
   workflow_dispatch:
-  schedule: [cron: '0 0 1 * *']
+  schedule: [cron: "0 0 1 * *"]
+
+env:
+  # Download artefacts fails if summery upload is on
+  DOCKER_BUILD_RECORD_UPLOAD: false
 
 jobs:
   docker-base-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        variant: ["debian:bullseye-slim", "debian:bookworm-slim", "ubuntu:focal", "ubuntu:jammy"]
+        variant:
+          [
+            "debian:bullseye-slim",
+            "debian:bookworm-slim",
+            "ubuntu:focal",
+            "ubuntu:jammy",
+          ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,7 +44,7 @@ jobs:
           echo "TAG_NAME=$(echo "${{ matrix.variant }}" | awk -F: '{print $NF}' | cut -d "-" -f1)" >> $GITHUB_ENV
           docker system prune --all --force
       - name: Build and push
-        uses: docker/build-push-action@v5.3.0
+        uses: docker/build-push-action@v6
         with:
           build-args: VARIANT=${{ matrix.variant }}
           push: true
@@ -53,7 +63,27 @@ jobs:
     strategy:
       matrix:
         variant: ["debian:bookworm-slim", "ubuntu:jammy"]
-        lang: [all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish]
+        lang:
+          [
+            all,
+            arabic,
+            chinese,
+            cjk,
+            cyrillic,
+            czechslovak,
+            english,
+            european,
+            french,
+            german,
+            greek,
+            italian,
+            japanese,
+            korean,
+            other,
+            polish,
+            portuguese,
+            spanish,
+          ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -72,7 +102,7 @@ jobs:
           echo "TAG_NAME=$(echo "${{ matrix.variant }}" | awk -F: '{print $NF}' | cut -d "-" -f1)" >> $GITHUB_ENV
           docker system prune --all --force
       - name: Build and push
-        uses: docker/build-push-action@v5.3.0
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             VARIANT=${{ env.TAG_NAME }}
@@ -108,7 +138,7 @@ jobs:
           echo "TAG_NAME=$(echo "${{ matrix.variant }}" | awk -F: '{print $NF}' | cut -d "-" -f1)" >> $GITHUB_ENV
           docker system prune --all --force
       - name: Build and push
-        uses: docker/build-push-action@v5.3.0
+        uses: docker/build-push-action@v6
         with:
           build-args: VARIANT=${{ env.TAG_NAME }}
           push: true

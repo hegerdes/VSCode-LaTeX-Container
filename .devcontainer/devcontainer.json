@@ -5,34 +5,35 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick an Debian version: buster, bullseye, bionic, focal
-		"args": { "VARIANT": "bookworm", "USERNAME": "latex"}
+		"args": {
+			"VARIANT": "bookworm",
+			"USERNAME": "latex"
+		}
 	},
-
 	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-
 	"mounts": [
 		"source=latex_vscode_extentions,target=/root/.vscode-server/extensions,type=volume",
 		"source=latex_vscode_extentions,target=/home/vscode/.vscode-server/extensions,type=volume",
 		"source=letex_vscode_bashhistory,target=/commandhistory,type=volume"
 	],
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"james-yu.latex-workshop",
-		"tecosaur.latex-utilities",
-		"yzhang.markdown-all-in-one",
-		"valentjn.vscode-ltex"
-	],
-
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": [
+				// Add the IDs of extensions you want installed when the container is created.
+				"james-yu.latex-workshop",
+				"tecosaur.latex-utilities",
+				"yzhang.markdown-all-in-one",
+				"valentjn.vscode-ltex"
+			]
+		}
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
-
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "latex"
 }

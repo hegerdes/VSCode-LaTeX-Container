@@ -3,8 +3,12 @@
 [![Docker Image CI](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml/badge.svg)](https://github.com/hegerdes/VSCode-LaTeX-Container/actions/workflows/docker-build.yml)
 [![](https://img.shields.io/docker/pulls/hegerdes/vscode-latex)](https://hub.docker.com/r/hegerdes/vscode-latex) [![GitHub forks](https://badgen.net/github/forks/hegerdes/VSCode-LaTeX-Container/)](https://GitHub.com/hegerdes/VSCode-LaTeX-Container/network/) [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 
-This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. It can be run as a DevContainer or on the web an ANY device using Codespaces or GitPods.   
-Docker/Container images are available [here.](https://hub.docker.com/r/hegerdes/vscode-latex)
+This repo is meant to be used with VSCode to provide a quick and functional full fleece LeTeX Environment. It can be run as a DevContainer or on the web an ANY device using Codespaces or GitPods.  
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hegerdes/VSCode-LaTeX-Container)  
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/hegerdes/VSCode-LaTeX-Container?quickstart=1)
+
+
 
 ## Functions
 With this image you can:
@@ -25,7 +29,7 @@ With this image you can:
 
 
 ## Getting started
-### Local setup 
+### Local setup
 The TeX source is on your host OS and gets mounted as volume
 ```bash
 # Open a terminal an type:
@@ -56,6 +60,8 @@ The entire project is within the container
 ```
 
 ## About the Docker image
+Container images are available on [DockerHub](https://hub.docker.com/r/hegerdes/vscode-latex).
+
 All images are updated every month to the latest package version via CI.  
 If you need reproducable enviorments use a fixed container image hash as tag.
 

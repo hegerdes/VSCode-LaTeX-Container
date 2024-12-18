@@ -1,4 +1,4 @@
-# [Choice] Debian version: bullseye, bookworm, focal, jammy
+# [Choice] Debian version: bullseye, bookworm, jammy, noble
 ARG VARIANT="debian:bookworm-slim"
 FROM ${VARIANT}
 
@@ -6,7 +6,7 @@ FROM ${VARIANT}
 ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="true"
 ARG USERNAME=latex
-ARG USER_UID=1000
+ARG USER_UID=1001
 ARG USER_GID=$USER_UID
 ARG PANDOC_VERSION=3.2.1
 

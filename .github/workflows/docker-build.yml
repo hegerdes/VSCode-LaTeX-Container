@@ -20,8 +20,8 @@ jobs:
           [
             "debian:bullseye-slim",
             "debian:bookworm-slim",
-            "ubuntu:focal",
             "ubuntu:jammy",
+            "ubuntu:noble",
           ]
     steps:
       - name: Checkout code
@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: ["debian:bookworm-slim", "ubuntu:jammy"]
+        variant: ["debian:bookworm-slim", "ubuntu:noble"]
         lang:
           [
             all,
@@ -122,7 +122,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: ["debian:bookworm-slim", "ubuntu:jammy"]
+        variant: ["debian:bookworm-slim", "ubuntu:noble"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

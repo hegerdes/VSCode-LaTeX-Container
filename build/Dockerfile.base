@@ -8,7 +8,7 @@ ARG UPGRADE_PACKAGES="true"
 ARG USERNAME=latex
 ARG USER_UID=1001
 ARG USER_GID=$USER_UID
-ARG PANDOC_VERSION=3.2.1
+ARG PANDOC_VERSION=3.6
 
 COPY scripts/*.sh /tmp/library-scripts/
 RUN bash /tmp/library-scripts/install-goodies.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \

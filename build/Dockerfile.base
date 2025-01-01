@@ -8,7 +8,7 @@ ARG UPGRADE_PACKAGES="true"
 ARG USERNAME=latex
 ARG USER_UID=1001
 ARG USER_GID=$USER_UID
-ARG PANDOC_VERSION=3.6
+ARG PANDOC_VERSION=3.6.1
 
 COPY scripts/*.sh /tmp/library-scripts/
 RUN bash /tmp/library-scripts/install-goodies.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
@@ -33,7 +33,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 # Install Pandoc
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends librsvg2-bin libjs-mathjax wkhtmltopdf \
-    && if [ "$(uname -m)" = "aarch64" ]; then wget --quiet https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-arm64.deb -O pandoc.deb; fi \
+    && if [ "$(uname -m)" = "aarch64" ] && [ "$(dpkg --print-architecture)" != "armhf" ]; then wget --quiet https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-arm64.deb -O pandoc.deb; fi \
     && if [ "$(uname -m)" = "x86_64" ]; then wget --quiet https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb -O pandoc.deb; fi \
     && if [ -f pandoc.deb ]; then apt-get install -y ./pandoc.deb && rm pandoc.deb; fi \
     && apt-get autoclean

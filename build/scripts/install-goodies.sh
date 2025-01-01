@@ -132,7 +132,12 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
     if [ "${CODENAME}" = "bullseye" ]; then
         PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust0"
     else
-        PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust1"
+        uname -a
+        if [ "$(dpkg --print-architecture)" = "armhf" ] && [ "${CODENAME}" = "noble" ]; then
+            PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust1t64"
+        else
+            PACKAGE_LIST="${PACKAGE_LIST} liblttng-ust1"
+        fi
     fi
 
     # Install libssl1.1 if available

@@ -24,7 +24,7 @@ jobs:
         uses: wtfjoke/setup-tectonic@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          tectonic-version: 0.14.1
+          tectonic-version: 0.15.0
 
       - name: Run tectonic
         run: tectonic main.tex

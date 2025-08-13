@@ -1,5 +1,11 @@
 # Changelog
 
+##  Aug 13 2025
+ * Drop Debian Bookworm and Ubuntu Frocal
+ * Drop ARM v7 support - only ARM64 will now be build
+ * Add support for Debian Trixie and Ubuntu Noble
+ * Update Pandoc to v3.7
+
 ##  Jul 21 2021
  * Added code for container build to repo
  * Added GH Action for auto build

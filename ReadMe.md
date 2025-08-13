@@ -65,7 +65,7 @@ Container images are available on [DockerHub](https://hub.docker.com/r/hegerdes/
 All images are updated every month to the latest package version via CI.  
 If you need reproducable enviorments use a fixed container image hash as tag.
 
-There are multiple base images **debian-[bullseye|bookworm] and ubuntu-[focal|jammy]**. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh and pandoc(not in alpine)** installed. Every image is available on x86/arm/arm64 architectures.
+There are multiple base images **debian-[bookworm|trixie] and ubuntu-[jammy|noble]**. All these images have **texlive, texlive-latex-extra texlive-lang-english, texlive-luatex, texlive-xetex, texlive-pstricks, texlive-science, latexmk, cm-super, chktex** with additional tools like **git, zsh and pandoc(not in alpine)** installed. Every image is available on x86/arm/arm64 architectures.
 
 The slim images only contain **texlive, texlive-latex-extra, texlive-lang-english, latexmk, cm-super, chktex**
 If you want a minimal image use these, but this might lack common tools/packages.

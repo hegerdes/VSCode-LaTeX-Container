@@ -1,7 +1,6 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian/.devcontainer/base.Dockerfile
 
-# [Choice] Debian version: buster, stretch, bionic, focal
-ARG VARIANT="bullseye"
+ARG VARIANT="trixie"
 # [Choice] LANG version: all arabic chinese cjk cyrillic czechslovak english european french german greek italian japanese korean other polish portuguese spanish
 FROM hegerdes/vscode-latex:${VARIANT}
 ARG LANG="english"

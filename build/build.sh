@@ -8,10 +8,10 @@ bash ../Common/CreateBuilder.sh
 # Setup
 IMAGE_NAME="hegerdes/vscode-latex"
 PLATFORMS="linux/amd64,linux/arm64,linux/arm/v7"
-VARIANTS=(debian:bullseye-slim ubuntu:focal)
+VARIANTS=(debian:trixie-slim ubuntu:noble)
 LANGUAGES=(all arabic chinese cjk cyrillic czechslovak english european french german greek italian japanese korean other polish portuguese spanish)
 DO_PUSH=""
-PANDOC_DOWNLOAD_URL="https://github.com/jgm/pandoc/releases/download/2.14.2/pandoc-2.16.2-1-amd64.deb"
+PANDOC_DOWNLOAD_URL="https://github.com/jgm/pandoc/releases/download/3.7.0.2/pandoc-3.7.0.2-1-amd64.deb"
 
 #Set CWD
 cd "$(dirname "$0")"
@@ -32,7 +32,7 @@ done
 docker buildx build --cache-from type=local,src=/tmp/docker-cache --cache-to=type=local,dest=/tmp/docker-cache,mode=max --platform $PLATFORMS --pull --build-arg VARIANT=debian:bullseye-slim --build-arg PANDOC_URL=$PANDOC_DOWNLOAD_URL -f "Dockerfile.base" -t $IMAGE_NAME:latest $DO_PUSH .
 
 # Build slim
-VARIANTS=(debian:bullseye-slim ubuntu:focal)
+VARIANTS=(debian:trixie-slim ubuntu:noble)
 for VARIANT in ${VARIANTS[@]}; do
     VARIANT_BUILD_TAG=(${VARIANT//:/ })
     VARIANT_NAME_TAG=(${VARIANT_BUILD_TAG[1]//-/ })

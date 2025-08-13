@@ -4,9 +4,9 @@
 	"name": "VScode LaTeX ENV",
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Debian version: buster, bullseye, bionic, focal
+		// Update 'VARIANT' to pick an Debian version: bookworm, trixie, noble, jammy
 		"args": {
-			"VARIANT": "bookworm",
+			"VARIANT": "trixie",
 			"USERNAME": "latex"
 		}
 	},

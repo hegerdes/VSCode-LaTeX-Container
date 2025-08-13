@@ -1,9 +1,9 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian/.devcontainer/base.Dockerfile
 
-# [Choice] Version: bullseye-[slim|full], focal-[slim|full], alpine
-# For bullseye and focal also language specific version exist. Use bullseye-<LANG>, focal-<LANG>
+# [Choice] Version: trixie-[slim|full], noble-[slim|full], alpine
+# For trixie and noble also language specific version exist. Use trixie-<LANG>, noble-<LANG>
 # LANG: [all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish]
-ARG VARIANT="bookworm"
+ARG VARIANT="trixie"
 FROM hegerdes/vscode-latex:${VARIANT}
 
 ARG USERNAME=latex

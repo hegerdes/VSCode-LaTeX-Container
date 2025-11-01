@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: ["debian:bookworm-slim", "ubuntu:noble"]
+        variant: ["debian:trixie-slim", "ubuntu:noble"]
         lang:
           [
             all,

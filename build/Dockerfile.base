@@ -27,8 +27,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     texlive-latex-extra texlive-fonts-recommended texlive-plain-generic \
     texlive-lang-english texlive-luatex texlive-xetex lmodern \
     texlive-pstricks ps2eps texlive-extra-utils ghostscript ruby \
-    libyaml-tiny-perl texlive-science latexmk cm-super chktex && \
-    apt-get clean -y && apt autoremove && sudo apt autoclean && \
+    libyaml-tiny-perl texlive-science latexmk cm-super chktex fonts-noto-color-emoji \
+    fonts-noto fonts-noto-core fonts-noto-cjk fonts-noto-extra && \
+    apt-get clean -y && apt autoremove && apt autoclean && \
     rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # Install Pandoc

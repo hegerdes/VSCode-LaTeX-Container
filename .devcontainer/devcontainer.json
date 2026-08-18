@@ -19,7 +19,18 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.shell.linux": "/bin/bash"
+				"terminal.integrated.shell.linux": "/bin/bash",
+				"latex-workshop.formatting.latex": "latexindent",
+				// Optional: keep auxiliary files out of the project root.
+				// Also add `.latex-build/` to .gitignore.
+				// "latex-workshop.latex.auxDir": "%DIR%/.latex-build",
+				// "latex-workshop.latex.tools": [
+				//   {
+				//     "name": "latexmk",
+				//     "command": "latexmk",
+				//     "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "-pdf", "-auxdir=%AUXDIR%", "%DOC%"]
+				//   }
+				// ],
 			},
 			"extensions": [
 				// Add the IDs of extensions you want installed when the container is created.

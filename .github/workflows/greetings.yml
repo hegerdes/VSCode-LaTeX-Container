@@ -14,7 +14,7 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/first-interaction@v1
+      - uses: actions/first-interaction@v3
         with:
           issue-message: "Hi, thank for reporting an issue, we will check it out very soon"
           pr-message: "Hi, thank you for contributing, we will check it out very soon"

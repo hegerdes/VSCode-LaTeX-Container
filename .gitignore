@@ -16,6 +16,7 @@
 *.bbl
 *.suo
 *.lot
+.latex-build
 
 # Out
 main.pdf

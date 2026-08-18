@@ -22,7 +22,6 @@
 				"terminal.integrated.shell.linux": "/bin/bash",
 				"latex-workshop.formatting.latex": "latexindent",
 				// Optional: keep auxiliary files out of the project root.
-				// Also add `.latex-build/` to .gitignore.
 				// "latex-workshop.latex.auxDir": "%DIR%/.latex-build",
 				// "latex-workshop.latex.tools": [
 				//   {

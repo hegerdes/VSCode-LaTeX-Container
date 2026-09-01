@@ -189,16 +189,21 @@ if id -u ${USERNAME} >/dev/null 2>&1; then
         usermod --uid $USER_UID $USERNAME
     fi
 else
-    # Create user
-    if [ "${USER_GID}" = "automatic" ]; then
-        groupadd $USERNAME
+    if getent group $USER_GID >/dev/null 2>&1; then
+        echo "Group with GID 1000 exists: $(getent group $USER_GID | cut -d: -f1)"
     else
-        groupadd --gid $USER_GID $USERNAME
+        # Create user
+        if [ "${USER_GID}" = "automatic" ]; then
+            groupadd $USERNAME
+        else
+            groupadd --gid $USER_GID $USERNAME
+        fi
     fi
+
     if [ "${USER_UID}" = "automatic" ]; then
         useradd -s /bin/bash --gid $USERNAME -m $USERNAME
     else
-        useradd -s /bin/bash --uid $USER_UID --gid $USERNAME -m $USERNAME
+        useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
     fi
 fi
 
